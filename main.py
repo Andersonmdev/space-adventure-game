@@ -1,19 +1,16 @@
-import pygame as pg
+import sys
+import pygame
+from src.screens.menu import Menu
 
-from game.utils.constants import DISPLAY_WIDTH, DISPLAY_HEIGHT
-from game.screens.menu import menu
-
-# pylint: disable=no-member
-pg.init()
-screen = pg.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT))
-pg.display.set_caption("AVENTURA ESPACIAL")
-
-
-def main():
+if __name__ == '__main__':
+    # pylint: disable=no-member
+    pygame.init()
+    pygame.display.set_caption("Space Adventure")
+    surface = pygame.display.set_mode((800, 800))
+    menu = Menu(surface)
     while True:
-        menu(screen)
-
-
-main()
-pg.quit()
-quit()
+        menu.draw()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
