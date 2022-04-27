@@ -4,9 +4,17 @@ from ..utils.resources import Resources
 
 
 class Menu(Screen):
+    BUTTON_SIZE = (250, 60)
+
     def __init__(self, surface: Surface):
         super().__init__(surface)
+        self.buttons = []
         self.set_running(True)
+
+    def draw(self):
+        self.setup_base()
+        if self.is_running():
+            pass
 
     def setup_base(self):
         self.surface.fill(self.WHITE)
@@ -33,7 +41,5 @@ class Menu(Screen):
             (550, 200),
         )
 
-    def draw(self):
-        self.setup_base()
-        if self.is_running():
-            pass
+    def draw_buttons(self):
+        pass
